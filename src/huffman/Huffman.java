@@ -51,8 +51,8 @@ public class Huffman {
         System.out.println("El mensaje codificado debe tener separados los códigos por un guión ('-')");
         System.out.println("Ingrese mensaje:");
         ts = entrada_datos.next();
-        String salida = "";
-        salida = arbol.traducir(ts, arbol);
+        // Llamar a metodo traductor
+        String salida = arbol.traducir(ts, arbol);
         System.out.println(salida);
     }
     
