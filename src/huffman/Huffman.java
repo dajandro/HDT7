@@ -47,6 +47,13 @@ public class Huffman {
         arbol.armar(set);
         arbol.setCod(((Nodo)set.first()));
         arbol.showCod();
+        // Pedir mensaje codificado        
+        System.out.println("El mensaje codificado debe tener separados los códigos por un guión ('-')");
+        System.out.println("Ingrese mensaje:");
+        ts = entrada_datos.next();
+        String salida = "";
+        salida = arbol.traducir(ts, arbol);
+        System.out.println(salida);
     }
     
 }

@@ -123,4 +123,33 @@ public class Arbol {
                 res += Character.toString((char)i) + " tiene codigo " + cf[i] + "\n";
         System.out.println(res);
     }
+    
+    public String traducir(String s, Arbol a)
+    {
+        String codigo = "";
+        String mensaje = "";
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (s.charAt(i) != '-')
+            {
+                codigo += s.charAt(i);
+            }            
+            else
+            {
+                codigo = "";
+            }
+            mensaje += a.getValor(codigo) + " ";            
+        }
+        return mensaje;
+    }
+    
+    public String getValor(String s)
+    {
+        String res = "";
+        for (int i = 0; i <= 255; i++)        
+            if (cf[i] != null)
+                if (cf[i].equals(s))
+                    res = Character.toString((char)i);
+        return res;
+    }
 }
