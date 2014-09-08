@@ -8,7 +8,7 @@ package huffman;
 
 /**
  *
- * @author Orozco Pablo
+ * @author Pablo
  */
 public class Nodo implements Comparable{
     private String valor;

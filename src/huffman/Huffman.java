@@ -58,7 +58,7 @@ public class Huffman {
         // Pedir mensaje codificado        
         System.out.println("El mensaje codificado debe tener separados los códigos por un guión ('-')");
         expresion =  JOptionPane.showInputDialog(null, "El mensaje codificado debe tener separados los códigos por un guión ('-')" ,"ingrese expresión para decodificar, ej: 01-1-0");
-// Llamar a metodo traductor
+        // Llamar a metodo traductor
         String salida = arbol.traducir(expresion, arbol);
         JOptionPane.showMessageDialog(null, salida);
     }

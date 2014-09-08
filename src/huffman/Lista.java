@@ -8,7 +8,7 @@ package huffman;
 
 /**
  *
- * @author Orozco Pablo
+ * @author Pablo
  */
 public class Lista {
     private Nodo cabeza;
