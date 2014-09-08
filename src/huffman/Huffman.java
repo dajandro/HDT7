@@ -34,6 +34,11 @@ public class Huffman {
         // Ingreso a lista
         for (int i = 0; i < ts.length(); i++)
             texto.insertar(String.valueOf(ts.charAt(i)));
+        // Mostrar frecuencia de lista
+        System.out.println("");
+        System.out.println("Frecuencia de letras ingresadas");
+        System.out.println(texto.toString());
+        System.out.println("");
         // Ingreso a Set
         Nodo tp = texto.getCabeza();
         while (tp.getSiguiente() != null)
