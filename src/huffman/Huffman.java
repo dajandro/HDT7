@@ -8,6 +8,7 @@ package huffman;
 
 import java.util.Scanner;
 import java.util.TreeSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Huffman {
     public static void main(String[] args) {
         // TODO code application logic here  
         // Objetos
-        Scanner entrada_datos  = new Scanner(System.in);
+       
         // Sirve para organizar los nodos por jerarquía de frecuencia
         TreeSet set = new TreeSet(new OrdenarSet());        
         // Sirve para tomar cada caracter ingresado y ponerlo en su nodo correspondiente
@@ -30,10 +31,10 @@ public class Huffman {
         Arbol arbol;
         // Instrucciones al usuario
         System.out.println("Ingrese cadena a codificar:");        
-        String ts = entrada_datos.next();        
+        String expresion = JOptionPane.showInputDialog(null, "ingrese expresión", null);
         // Ingreso a lista
-        for (int i = 0; i < ts.length(); i++)
-            texto.insertar(String.valueOf(ts.charAt(i)));
+        for (int i = 0; i < expresion.length(); i++)
+            texto.insertar(String.valueOf(expresion.charAt(i)));
         // Mostrar frecuencia de lista
         System.out.println("");
         System.out.println("Frecuencia de letras ingresadas");
@@ -55,9 +56,9 @@ public class Huffman {
         // Pedir mensaje codificado        
         System.out.println("El mensaje codificado debe tener separados los códigos por un guión ('-')");
         System.out.println("Ingrese mensaje:");
-        ts = entrada_datos.next();
+        expresion =  JOptionPane.showInputDialog(null, "ingrese expresión", null);
         // Llamar a metodo traductor
-        String salida = arbol.traducir(ts, arbol);
+        String salida = arbol.traducir(expresion, arbol);
         System.out.println(salida);
     }
     
