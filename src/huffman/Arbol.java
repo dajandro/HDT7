@@ -29,6 +29,48 @@ public class Arbol {
         cf = new String [256];
     }   
     
+    public String preOrder(Nodo d)
+    {
+        String res = "";
+        if (d != null)
+        {
+            res += d.getValor();
+            res += preOrder(d.getIzq());
+            res += preOrder(d.getDer());
+            return res;
+        }
+        else
+            return res;
+    }
+    
+    public String postOrder(Nodo d)
+    {
+        String res = "";
+        if (d != null)
+        {            
+            res += postOrder(d.getIzq());
+            res += postOrder(d.getDer());
+            res += d.getValor();
+            return res;
+        }
+        else
+            return res;
+    }
+    
+    public String inOrder(Nodo d)
+    {
+        String res = "";
+        if (d != null)
+        {            
+            res += inOrder(d.getIzq());
+            res += d.getValor();
+            res += inOrder(d.getDer());
+            return res;
+        }
+        else
+            return res;
+    }
+    
     public void armar(TreeSet set)
     {        
         while (set.size() != 1)
@@ -76,7 +118,7 @@ public class Arbol {
     public void showCod()
     {
         String res = "";
-        for (int i = 0; i<255; i++)            
+        for (int i = 0; i<=255; i++)            
             if (cf[i] != null)
                 res += Character.toString((char)i) + " tiene codigo " + cf[i] + "\n";
         System.out.println(res);

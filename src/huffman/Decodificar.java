@@ -14,14 +14,12 @@ public class Decodificar {
     
     private String mensaje;
     private int cb;
-    private int[] v;
-    private String[] cf;
+    private int[] v;    
     
     public Decodificar()
     {
         mensaje = "";
-        v = new int[256];
-        cf = new String[256];
+        v = new int[256];        
     }
     
     public Decodificar(String s)

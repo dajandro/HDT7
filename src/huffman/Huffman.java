@@ -46,7 +46,7 @@ public class Huffman {
         arbol = new Arbol((Nodo)set.first());
         arbol.armar(set);
         arbol.setCod(((Nodo)set.first()));
-        arbol.showCod();        
+        arbol.showCod();
     }
     
 }
