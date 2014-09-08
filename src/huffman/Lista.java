@@ -12,13 +12,11 @@ package huffman;
  */
 public class Lista {
     private Nodo cabeza;
-    private Nodo actual;
-    private String[] cf;
+    private Nodo actual;    
 	
     public Lista()
     {        
-	actual = cabeza;
-        cf = new String[256];
+	actual = cabeza;        
     }    
     
     public Nodo getCabeza()

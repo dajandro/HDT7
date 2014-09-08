@@ -6,59 +6,45 @@
 
 package huffman;
 
+import java.util.TreeSet;
+
 /**
  *
  * @author Daniel Orozco <daniel.orozco>
  */
 public class Arbol {
-    private Nodo cabeza;
+    private Nodo raiz;
     private Nodo actual;
     private String[] cf;
     
     public Arbol()
     {
-        cabeza = null;
+        raiz = null;
         cf = new String[256];
     }
     
-    public Arbol(Lista l)
+    public Arbol(Nodo raiz)
     {
-        cabeza = l.getCabeza();
+        this.raiz = raiz;
         cf = new String [256];
-    }
+    }   
     
-    // No pasa los parámetros por referencia
-    public Nodo insertarR(Nodo p,Nodo e)
-    {
-        //if ( (p == null) || (p.getFrecuencia() > e.getFrecuencia()) )
-        if (p == null)
-        {            
-            //e.setSiguiente(p);            
-            p = e;
-            return p;
-        }
-        else
-            return insertarR(p.getSiguiente(),e);        
-    }
-    
-    public void armar()
+    public void armar(TreeSet set)
     {        
-        Nodo t = null;
-        Nodo p = null;
-        actual = cabeza;        
-        //while ((actual.getSiguiente()).getSiguiente() != null)        
-        while (actual.getSiguiente().getSiguiente() != null)
-        {            
-            t = new Nodo();            
-            t.setIzq(actual);
-            actual = actual.getSiguiente();
-            t.setDer(actual);
-            actual = actual.getSiguiente();
-            t.setFrecuencia(t.getDer().getFrecuencia(),t.getIzq().getFrecuencia());
-            t.setValor(t.getIzq().getValor()+t.getDer().getValor());            
-            p = insertarR(actual,t);
-            t.setSiguiente(p);
-            //actual = t;
+        while (set.size() != 1)
+        {
+            Nodo izq = (Nodo)set.first();
+            set.pollFirst();
+            Nodo der = (Nodo)set.first();
+            set.pollFirst();          
+            
+            Nodo base = new Nodo();
+            base.setValor(izq.getValor()+der.getValor());
+            base.setFrecuencia(izq.getFrecuencia(),der.getFrecuencia());
+            base.setIzq(izq);
+            base.setDer(der);
+            
+            set.add(base);
         }        
     }
     
@@ -82,9 +68,9 @@ public class Arbol {
         }
     }
     
-    public void setCod()
+    public void setCod(Nodo raiz)
     {
-        codhuff(cabeza,"");        
+        codhuff(raiz,"");        
     }
     
     public void showCod()
