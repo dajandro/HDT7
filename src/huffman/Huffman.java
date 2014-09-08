@@ -29,15 +29,14 @@ public class Huffman {
         Lista texto = new Lista();
         // Arbol que genera los códigos de Huffman
         Arbol arbol;
-        // Instrucciones al usuario
-        System.out.println("Ingrese cadena a codificar:");        
+        // Instrucciones al usuario       
         String expresion = JOptionPane.showInputDialog(null, "ingrese expresión", null);
         // Ingreso a lista
         for (int i = 0; i < expresion.length(); i++)
             texto.insertar(String.valueOf(expresion.charAt(i)));
         // Mostrar frecuencia de lista
         System.out.println("");
-        System.out.println("Frecuencia de letras ingresadas");
+        JOptionPane.showMessageDialog(null, texto);
         System.out.println(texto.toString());
         System.out.println("");
         // Ingreso a Set
@@ -52,14 +51,16 @@ public class Huffman {
         arbol = new Arbol((Nodo)set.first());
         arbol.armar(set);
         arbol.setCod(((Nodo)set.first()));
-        arbol.showCod();
+        //mostrar resultado
+        JOptionPane.showMessageDialog(null, arbol.toString());
+        
+        //---------decodificacion-------
         // Pedir mensaje codificado        
         System.out.println("El mensaje codificado debe tener separados los códigos por un guión ('-')");
-        System.out.println("Ingrese mensaje:");
-        expresion =  JOptionPane.showInputDialog(null, "ingrese expresión", null);
-        // Llamar a metodo traductor
+        expresion =  JOptionPane.showInputDialog(null, "El mensaje codificado debe tener separados los códigos por un guión ('-')" ,"ingrese expresión para decodificar, ej: 01-1-0");
+// Llamar a metodo traductor
         String salida = arbol.traducir(expresion, arbol);
-        System.out.println(salida);
+        JOptionPane.showMessageDialog(null, salida);
     }
     
 }

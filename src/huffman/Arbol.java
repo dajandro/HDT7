@@ -15,18 +15,18 @@ import java.util.TreeSet;
 public class Arbol {
     private Nodo raiz;
     private Nodo actual;
-    private String[] cf;
+    private String[] ascii;
     
     public Arbol()
     {
         raiz = null;
-        cf = new String[256];
+        ascii = new String[256];
     }
     
     public Arbol(Nodo raiz)
     {
         this.raiz = raiz;
-        cf = new String [256];
+        ascii = new String [256];
     }   
     
     public String preOrder(Nodo d)
@@ -100,7 +100,7 @@ public class Arbol {
             {
                 tc = p.getValor().charAt(0);
                 t = (int)tc;
-                cf[t] = e;
+                ascii[t] = e;
             }
             else
             {
@@ -115,13 +115,13 @@ public class Arbol {
         codhuff(raiz,"");        
     }
     
-    public void showCod()
+    public String toString()
     {
         String res = "";
         for (int i = 0; i<=255; i++)            
-            if (cf[i] != null)
-                res += Character.toString((char)i) + " tiene codigo " + cf[i] + "\n";
-        System.out.println(res);
+            if (ascii[i] != null)
+                res += Character.toString((char)i) + " tiene codigo " + ascii[i] + "\n";
+       return res;
     }
     
     public String traducir(String s, Arbol a)
@@ -147,8 +147,8 @@ public class Arbol {
     {
         String res = "";
         for (int i = 0; i <= 255; i++)        
-            if (cf[i] != null)
-                if (cf[i].equals(s))
+            if (ascii[i] != null)
+                if (ascii[i].equals(s))
                     res = Character.toString((char)i);
         return res;
     }

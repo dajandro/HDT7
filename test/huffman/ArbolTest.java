@@ -132,7 +132,7 @@ public class ArbolTest {
     public void testShowCod() {
         System.out.println("showCod");
         Arbol instance = new Arbol();
-        instance.showCod();
+        instance.toString();
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

@@ -70,6 +70,7 @@ public class Lista {
                 s += " con frecuencia: ";
                 s += String.valueOf(temp.getFrecuencia());
                 s += " -> ";
+                s += "\n";
                 temp = temp.getSiguiente();
             }
             s += temp.getValor();
