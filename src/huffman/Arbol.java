@@ -2,10 +2,12 @@
 * Universidad del Valle de Guatemala
 * Pablo Diaz 13203
 * Daniel Orozco 13312
+* implementacion del HEAP
 */
 
 package huffman;
 
+import java.util.PriorityQueue;
 import java.util.TreeSet;
 
 /**
@@ -71,14 +73,14 @@ public class Arbol {
             return res;
     }
     
-    public void armar(TreeSet set)
+    public void armar(PriorityQueue set)
     {        
         while (set.size() != 1)
         {
-            Nodo izq = (Nodo)set.first();
-            set.pollFirst();
-            Nodo der = (Nodo)set.first();
-            set.pollFirst();          
+            Nodo izq = (Nodo)set.peek();
+            set.poll();
+            Nodo der = (Nodo)set.peek();
+            set.poll();          
             
             Nodo base = new Nodo();
             base.setValor(izq.getValor()+der.getValor());

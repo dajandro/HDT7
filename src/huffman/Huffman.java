@@ -6,7 +6,7 @@
 
 package huffman;
 
-import java.util.Scanner;
+import java.util.PriorityQueue;
 import java.util.TreeSet;
 import javax.swing.JOptionPane;
 
@@ -24,7 +24,8 @@ public class Huffman {
         // Objetos
        
         // Sirve para organizar los nodos por jerarquía de frecuencia
-        TreeSet set = new TreeSet(new OrdenarSet());        
+        //TreeSet set = new TreeSet(new OrdenarSet()); 
+        PriorityQueue set = new PriorityQueue(new OrdenarSet());
         // Sirve para tomar cada caracter ingresado y ponerlo en su nodo correspondiente
         Lista texto = new Lista();
         // Arbol que genera los códigos de Huffman
@@ -48,11 +49,12 @@ public class Huffman {
         }        
         set.add(tp);
         // Operaciones con el árbol
-        arbol = new Arbol((Nodo)set.first());
+        arbol = new Arbol((Nodo)set.peek());
         arbol.armar(set);
-        arbol.setCod(((Nodo)set.first()));
+        arbol.setCod(((Nodo)set.peek()));
         //mostrar resultado
         JOptionPane.showMessageDialog(null, arbol.toString());
+        System.out.println(arbol.toString());
         
         //---------decodificacion-------
         // Pedir mensaje codificado        
@@ -61,6 +63,7 @@ public class Huffman {
         // Llamar a metodo traductor
         String salida = arbol.traducir(expresion, arbol);
         JOptionPane.showMessageDialog(null, salida);
+        System.out.println(salida);
     }
     
 }

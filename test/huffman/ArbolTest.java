@@ -6,13 +6,14 @@
 
 package huffman;
 
+import java.util.PriorityQueue;
 import java.util.TreeSet;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -90,7 +91,7 @@ public class ArbolTest {
     @Test
     public void testArmar() {
         System.out.println("armar");
-        TreeSet set = new TreeSet(new OrdenarSet());
+        PriorityQueue set = new PriorityQueue(new OrdenarSet());
         set.add(new Nodo());
         Arbol instance = new Arbol();
         instance.armar(set);
